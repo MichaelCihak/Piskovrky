@@ -1,4 +1,7 @@
 class RegistracniForm{
+    
+//vytvoření formuláře
+    
 constructor(){
     this.form = document.createElement("form");
     this.form.id = "dynamicForm";
@@ -19,7 +22,8 @@ constructor(){
     document.getElementById("registraceForm").appendChild(this.form);
   
 }
-//vytvoření formuláře
+
+// nový prvek input
     
  createInput(id, type, placeholder, required) {
     var input = document.createElement("input");
