@@ -1,3 +1,18 @@
+<?
+session_start();
+
+$jmeno1 = isset($_SESSION["jmeno1"]) ? $_SESSION["jmeno1"] : "";
+$jmeno2 = isset($_SESSION["jmeno2"]) ? $_SESSION["jmeno2"] : "";
+
+if ($jmeno1 == "") {
+    echo "Jméno hráče 1 není uloženo";
+}
+
+if ($jmeno2 == "") {
+    echo "Jméno hráče 2 není uloženo";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -10,6 +25,12 @@
 </head>
 <body id="hraBody">
     <h1 id="nadpis">Piškvorky</h1>
+
+<?
+    print "<p id = 'hraciOba'>Hráči:</p>";
+    print "<p id = 'jmenoh1'>1. $jmeno1</p>";
+    print "<p id = 'jmenoh2'>2. $jmeno2</p>";
+    ?>
 
  <div id="moznosti">
 <label for="velikostPole">Vyberte velikost pole:</label>
