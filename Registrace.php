@@ -11,6 +11,9 @@
     <h1 id="nadpis">Registrace do hry</h1>
 
     <div id="registraceForm">
+    <script>
+        var registracniForm = new RegistracniForm();
+    </script>
     <button id="go" onclick="go()">Jdeme na to</button>
     </div>
 </body>
