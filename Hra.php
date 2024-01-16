@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 $jmeno1 = isset($_SESSION["jmeno1"]) ? $_SESSION["jmeno1"] : "";
@@ -26,7 +26,7 @@ if ($jmeno2 == "") {
 <body id="hraBody">
     <h1 id="nadpis">Piškvorky</h1>
 
-<?
+<?php
     print "<p id = 'hraciOba'>Hráči:</p>";
     print "<p id = 'jmenoh1'>1. $jmeno1</p>";
     print "<p id = 'jmenoh2'>2. $jmeno2</p>";
