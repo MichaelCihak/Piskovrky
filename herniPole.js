@@ -1,6 +1,8 @@
 class HerniPole(){
   constructor(){
-
+  this.hraci = ["X", "O"];
+  this.aktualniHracIndex = 0;
+  this.hraskoncila = false;
     
   }
 
@@ -46,8 +48,19 @@ novaHra(herniPole, velikostPoleInput) {
     }
 
   umistitSymbol(event){
-    
-  }
-
+      if (this.hraSkoncila) {
+        return;
+      }
   
+      var index = event.target.getAttribute("data-index");
+      this.umistitSymbolPodleIndexu(index);
+  }
+ umistitSymbolPodleIndexu(index) {
+      var ctverec = document.querySelector(`[data-index="${index}"]`);
+  
+      if (ctverec && ctverec.innerHTML === " " && !this.hraSkoncila) {
+        ctverec.innerHTML = this.hraci[this.aktualniHracIndex];
+        this.aktualniHracIndex = (this.aktualniHracIndex + 1) % this.hraci.length;
+      }
+   }
 }
