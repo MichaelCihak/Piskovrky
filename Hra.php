@@ -38,8 +38,23 @@ if ($jmeno2 == "") {
         <option value="3">3x3</option>
         <option value="4">4x4</option>
         <option value="5">5x5</option>
-
     </select>
+
+<script>
+    var herniPole = new HerniPole();  // vytvoření třídy HerniPole
+
+    // funkce pro volání metody generovatPole třídy HerniPole
+    function generovatPole() {
+        herniPole.generovatPole();
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        herniPole.generovatPole();
+    });
+</script>
+     
+    <button id="buttonPole" onclick="generovatPole()">Generovat pole</button>
+
+    <div id="herniPole" class="piskvorky-grid"></div>
 </div>
 </body>
 </html>
