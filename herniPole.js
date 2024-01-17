@@ -2,7 +2,7 @@ class HerniPole{
   constructor(){
   this.hraci = ["X", "O"];
   this.aktualniHracIndex = 0;
-  this.hraskoncila = false;
+  this.hraSkoncila = false;
     
   }
 
