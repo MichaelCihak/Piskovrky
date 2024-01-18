@@ -42,7 +42,7 @@ constructor(){
   }
 // získání hodnot jmen z formuláře
 startGame(){
-        let jmeno1 = document.getElementById("jmeno1").value;
+    let jmeno1 = document.getElementById("jmeno1").value;
     let jmeno2 = document.getElementById("jmeno2").value;
 
     let data = {
