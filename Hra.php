@@ -11,6 +11,9 @@ if ($jmeno1 == "") {
 if ($jmeno2 == "") {
     echo "Jméno hráče 2 není uloženo";
 }
+
+$hrac1Vyhry = isset($_SESSION["hrac1Vyhry"]) ? $_SESSION["hrac1Vyhry"] : 0;
+$hrac2Vyhry = isset($_SESSION["hrac2Vyhry"]) ? $_SESSION["hrac2Vyhry"] : 0;    
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +33,8 @@ if ($jmeno2 == "") {
     print "<p id = 'hraciOba'>Hráči:</p>";
     print "<p id = 'jmenoh1'>1. $jmeno1</p>";
     print "<p id = 'jmenoh2'>2. $jmeno2</p>";
+    print "<p id='hrac1-vyhry'>Hráč 1: $hrac1Vyhry</p>";
+    print "<p id='hrac2-vyhry'>Hráč 2: $hrac2Vyhry</p>";
     ?>
 
  <div id="moznosti">
@@ -50,6 +55,8 @@ if ($jmeno2 == "") {
     document.addEventListener('DOMContentLoaded', function () {
         herniPole.generovatPole();
     });
+
+    herniPole.aktualizovatPocetVyhry();
 </script>
      
     <button id="buttonPole" onclick="generovatPole()">Generovat pole</button>
