@@ -1,1 +1,157 @@
+#registraceBody{
+    background-image: url(backgroundps.jpg);
+    background-size: cover;
+}
+#registraceForm{
+    text-align: center;
+}
 
+#nadpis {
+    text-align: center;
+    font-size: 200%;
+    font-family: Luminari, fantasy;
+}
+
+#predmluv {
+margin-left: 50px;
+font-size: 130%;
+font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+}
+
+#jmeno1 {
+margin-left: 50px;
+border: solid black;
+}
+
+#jmeno2 {
+margin-left: 4px;
+border: solid #000;
+}
+
+#registrace{
+    margin-left: 5px;
+    border: solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#registrace:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+    transition: 0.7s;
+}
+
+#go {
+    margin-left: 50px;
+    border: solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#go:hover {
+    cursor: pointer;
+    background-color: lightcoral;
+    transition: 0.7s;
+}
+
+#hraBody {
+    background-image: url(./backgroundp2.jpg);
+    background-size: cover;
+}
+
+#vyhry {
+    font-size: 150%;
+    margin-left: 20%;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#hrac1-vyhry {
+    margin-left: 20%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 150%;
+    font-style: italic;
+}
+
+#hrac2-vyhry {
+    margin-left: 20%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 150%;
+    font-style: italic;
+}
+
+#hraciOba {
+    margin-left: 20%;
+    font-size: 150%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#jmenoh1{
+    margin-left: 20%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 150%;
+    font-style: italic;
+}
+
+#jmenoh2{
+    margin-left: 20%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 150%;
+    font-style: italic;
+}
+#buttonPole{
+    margin-left: 40%;
+    margin-bottom: 10px;
+}
+
+#buttonPole:hover{
+    cursor: pointer;
+    background-color:orangered;
+    transition: 0.5s;
+}
+#moznosti{
+    font-size: 150%;
+    font-style: italic;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 40%;
+    margin-bottom: 10px;
+}
+#generPole {
+    border: solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+#generPole:hover {
+    cursor: pointer;
+    background-color:aquamarine;
+    transition: 0.5s;
+}
+#velikostPole{
+    font-size: 80%;
+    font-style: italic;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.piskvorky-grid {
+    display: grid;
+    grid-gap: 0;
+    grid-auto-columns: 100px;
+    grid-auto-rows: 100px;
+    margin-left: 40%;
+}
+
+.piskvorky-cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 98px;
+    font-size: 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.piskvorky-cell:hover {
+    background-color: aquamarine;
+    transition: 0.5s;
+}
