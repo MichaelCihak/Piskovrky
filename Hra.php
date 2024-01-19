@@ -31,8 +31,8 @@ $hrac2Vyhry = isset($_SESSION["hrac2Vyhry"]) ? $_SESSION["hrac2Vyhry"] : 0;
 
 <?php
     print "<p id = 'hraciOba'>Hráči:</p>";
-    print "<p id = 'jmenoh1'>1. $jmeno1</p>";
-    print "<p id = 'jmenoh2'>2. $jmeno2</p>";
+    print "<p id = 'jmenoh1'>1. $jmeno1 hrahe za X</p>";
+    print "<p id = 'jmenoh2'>2. $jmeno2 hraje za O</p>";
     print "<p id='hrac1-vyhry'>Hráč 1: $hrac1Vyhry</p>";
     print "<p id='hrac2-vyhry'>Hráč 2: $hrac2Vyhry</p>";
     ?>
