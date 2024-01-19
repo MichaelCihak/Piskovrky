@@ -69,7 +69,7 @@ umistitSymbol(event){
         this.aktualniHracIndex = (this.aktualniHracIndex + 1) % this.hraci.length;
       }
         if (this.kontrolaVyhry()) {
-          console.log("Hra skončila, hráč " + this.hraci[this.aktualniHracIndex ^ 1] + " vyhrál!");
+          alert("Hra skončila, hráč hrající za: " + this.hraci[this.aktualniHracIndex ^ 1] + " vyhrál!");
           this.hraSkoncila = true;
   
           // přiřazování výher
