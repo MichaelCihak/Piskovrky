@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Scripty/View.js"></script>
+    <link rel="stylesheet" href="./Styl/herniPoleStyl.css">
+    <title>Registrace</title>
+</head>
+<body id="registraceBody">
+    <h1 id="nadpis">Registrace do hry</h1>
+
+    <div id="registraceForm"></div>
+    <script>
+        var registracniForm = new RegistracniForm();
+
+        const MAX_JMEN_V_ULOZISTI = 10;
+
+        function ulozJmeno(jmeno) {
+            let jmena = JSON.parse(localStorage.getItem("historieJmen")) || [];
+            if (jmena.length >= MAX_JMEN_V_ULOZISTI) {
+                jmena.shift();
+            }
+            jmena.push(jmeno);
+            localStorage.setItem("historieJmen", JSON.stringify(jmena));
+        }
+
+        function ziskejJmena() {
+            return JSON.parse(localStorage.getItem("historieJmen")) || [];
+        }
+    </script>
+</body>
+</html>

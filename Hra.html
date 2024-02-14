@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Scripty/herniPole.js"></script>
+    <script src="./Scripty/KontrolaVyhry.js"></script>
+    <link rel="stylesheet" href="./Styl/herniPoleStyl.css">
+    <title>Piškvorky</title>
+</head>
+
+<body id="hraBody">
+    <h1 id="nadpis">Piškvorky</h1>
+
+    <table id="nameTable">
+        <thead>
+            <tr>
+                <th>Jméno</th>
+                <th>Výhry</th>
+            </tr>
+        </thead>
+        <tbody id="historieJmenList"></tbody>
+    </table>
+
+    <p id="jmenoh1"></p>
+    <p id="jmenoh2"></p>
+
+    <p id='hrac1-vyhry'>Hráč 1: <span id="hrac1-vyhry-value">0</span></p>
+    <p id='hrac2-vyhry'>Hráč 2: <span id="hrac2-vyhry-value">0</span></p>
+
+    <label id="moznosti" for="moznosti">Vyberte velikost pole:</label>
+    <select id="velikostPole">
+        <option value="3">3x3</option>
+        <option value="4">4x4</option>
+        <option value="5">5x5</option>
+        <option value="6">6x6</option>
+    </select>
+
+    <script>
+        const MAX_JMEN_V_ULOZISTI = 10;
+
+        function ulozJmeno(jmeno) {
+    let jmena = JSON.parse(localStorage.getItem("historieJmen")) || [];
+    let jmenaVyhry = JSON.parse(localStorage.getItem("jmenaVyhry")) || {};
+
+    const existujiciIndex = jmena.findIndex(existingName => existingName === jmeno);
+
+    if (existujiciIndex !== -1) {
+        // Jméno již existuje v historii, aktualizuj počet výher
+        const existujiciJmeno = jmena[existujiciIndex];
+        jmenaVyhry[existujiciJmeno] = (jmenaVyhry[existujiciJmeno] || 0) + 1;
+    } else {
+        // Přidat nové jméno do pole
+        if (jmena.length >= MAX_JMEN_V_ULOZISTI) {
+            jmena.shift();
+        }
+        jmena.push(jmeno);
+        jmenaVyhry[jmeno] = (jmenaVyhry[jmeno] || 0) + 1;
+    }
+
+    localStorage.setItem("historieJmen", JSON.stringify(jmena));
+    localStorage.setItem("jmenaVyhry", JSON.stringify(jmenaVyhry));
+
+    zobrazJmena();
+}
+
+        function ziskejJmena() {
+            return JSON.parse(localStorage.getItem("historieJmen")) || [];
+        }
+
+        function zobrazJmena() {
+            const historieJmenList = document.getElementById("historieJmenList");
+            historieJmenList.innerHTML = "";
+
+            const jmena = ziskejJmena();
+
+            jmena.forEach(jmeno => {
+                const listItem = document.createElement("li");
+                listItem.textContent = jmeno;
+                historieJmenList.appendChild(listItem);
+            });
+        }
+
+        window.onload = function () {
+            zobrazJmena();
+        };
+
+        var herniPole = new HerniPole();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const jmena = ziskejJmena();
+        const velikostPole = urlParams.get('velikostPole') || 3;
+
+        document.getElementById("nadpis").innerText = "Piškvorky";
+        document.getElementById("jmenoh1").innerText = `1. ${jmena[0]} hraje za: X`;
+        document.getElementById("jmenoh2").innerText = `2. ${jmena[1]} hraje za: O`;
+
+        document.getElementById("velikostPole").value = velikostPole;
+
+        herniPole.generovatPole();
+
+        function generovatPole() {
+            herniPole.generovatPole();
+        }
+
+        document.getElementById("buttonPole").addEventListener("click", generovatPole);
+
+        herniPole.aktualizovatPocetVyhry();
+        herniPole.aktualizovatTabulkuVyher();
+
+        
+    </script>
+
+    <button id="buttonPole" onclick="generovatPole()">Nová hra</button>
+    <div id="herniPole" class="piskvorky-grid"></div>
+</body>
+
+</html>
